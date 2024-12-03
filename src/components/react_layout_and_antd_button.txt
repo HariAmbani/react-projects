@@ -1,0 +1,11 @@
+<div>
+<Test/>
+//<Heading/>
+//<Foot/>
+//<Button type="primary">Primary Button</Button>
+<Button danger style={{backgroundColor:'red', color:'white',width:"200px"}}>Danger Button</Button>
+<Button color="danger" size="large" type="dashed" variant="filled" shape="round
+">alert Button</Button>
+<FloatButton></FloatButton>
+<Antform></Antform>
+</div>
