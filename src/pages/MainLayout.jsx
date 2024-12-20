@@ -7,6 +7,17 @@ import { Link, Route, Routes } from "react-router-dom";
 import Antform from "../components/form";
 import Counter from "../components/Counter";
 import AdminPage from "./adminpage";
+import { ErrorBoundary } from 'react-error-boundary';
+
+
+const FallbackComponentfunc = ({ error }) => {
+    return(
+        <div>
+            <h1>Counter Maximum Value is reach </h1>
+            <p>{error.message}</p>
+        </div>
+    )
+}
 
 function MainLayout(){
     return(
@@ -54,7 +65,11 @@ function MainLayout(){
                         <Route path="dashboard" element={<p>    dashboard</p>} />
                         <Route path="courses" element={<p>     courses</p>} />
                         <Route path="assignments" element={<p>    assignments</p>} />
-                        <Route path="counter" element={<Counter></Counter>} />
+                        <Route path="counter" element={
+                            <ErrorBoundary FallbackComponent={FallbackComponentfunc}>
+                                 <Counter/>
+                            </ErrorBoundary>   
+                        } />
                     </Routes>
                 </Content>
             </Layout>

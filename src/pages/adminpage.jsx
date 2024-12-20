@@ -1,6 +1,7 @@
 import { Button, Form, Input, Select } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { useState } from "react";
+import AssignemntTable from "../components/assignmentTable";
 
 function AdminPage(){
 
@@ -59,12 +60,12 @@ function AdminPage(){
 
 
     return(
+        <div style={{display:"flex",gap:"50px",marginTop:"30px"}}>
         <div style={{ width:"35%",  
                       marginLeft:"50px", 
                       backgroundColor:"white", 
                       paddingLeft:"50px", 
                       paddingRight:"50px",
-                      marginTop:"30px",
                       marginDown:"50px",
                       paddingTop:"1px",
                       paddingBottom:"50px",
@@ -79,7 +80,11 @@ function AdminPage(){
                     <Select.Option value="2">Assignment</Select.Option>
                 </Select>
             </div>
-            {selected === "1" ? courseForm : selected === "2" ? assignForm : <h3>Please select any option to get the form</h3>}
+            {selected === "1" ? courseForm : 
+            selected === "2" ? assignForm : 
+            <h3>Please select any option to get the form</h3>}
+        </div>
+            <AssignemntTable style={{marginTop:"30px"}}/>
         </div>
     )
 }
